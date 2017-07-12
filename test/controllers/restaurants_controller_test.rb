@@ -17,7 +17,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create restaurant' do
     assert_difference('Restaurant.count') do
-      post restaurants_url, params: { restaurant: { address: @restaurant.address, name: @restaurant.name, phone: @restaurant.phone, website: @restaurant.website } }
+      post restaurants_url, params: {restaurant: {address: @restaurant.address, name: @restaurant.name, phone: @restaurant.phone, website: @restaurant.website}}
     end
 
     assert_redirected_to restaurant_url(Restaurant.last)
@@ -34,7 +34,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update restaurant' do
-    patch restaurant_url(@restaurant), params: { restaurant: { address: @restaurant.address, name: @restaurant.name, phone: @restaurant.phone, website: @restaurant.website } }
+    patch restaurant_url(@restaurant), params: {restaurant: {address: @restaurant.address, name: @restaurant.name, phone: @restaurant.phone, website: @restaurant.website}}
     assert_redirected_to restaurant_url(@restaurant)
   end
 
