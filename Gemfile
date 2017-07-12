@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'figaro'
+gem 'mini_magick'
 
 group :production do
   gem 'pg'
