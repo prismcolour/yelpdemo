@@ -12,6 +12,11 @@ class RestaurantsController < ApplicationController
   def show
     # Accesses foreign-key from set_restaurant method
     @reviews = Review.where(restaurant_id: @restaurant.id)
+    @avg_rating = if @reviews.blank?
+      0
+                  else
+      @reviews.average(:rating).round(2)
+                  end
   end
 
   # GET /restaurants/new
