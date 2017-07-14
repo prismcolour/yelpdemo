@@ -9,7 +9,10 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1
   # GET /restaurants/1.json
-  def show; end
+  def show
+    # Accesses foreign-key from set_restaurant method
+    @reviews = Review.where(restaurant_id: @restaurant.id)
+  end
 
   # GET /restaurants/new
   def new
