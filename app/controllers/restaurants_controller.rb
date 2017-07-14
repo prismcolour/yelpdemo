@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     # Accesses foreign-key from set_restaurant method
-    @reviews = Review.where(restaurant_id: @restaurant.id)
+    @reviews = Review.where(restaurant_id: @restaurant.id).order('created_at DESC')
     @avg_rating = if @reviews.blank?
       0
                   else
