@@ -1,7 +1,15 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_user, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :check_user, except: [:index, :show, :search]
+
+  def search
+    @restaurants = if params[:search].present?
+      Restaurant.search(params[:search])
+                   else
+      Restaurant.all
+                   end
+  end
 
   # GET /restaurants
   # GET /restaurants.json
