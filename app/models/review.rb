@@ -9,5 +9,5 @@ class Review < ApplicationRecord
     less_than_or_equal_to:    5,
     message:                  'can only be a whole number between 1 and 5'
   }
-  validates :user_id, uniqueness: true
+  validates_uniqueness_of :user_id, :scope => :restaurant_id
 end
